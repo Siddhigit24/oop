@@ -1,0 +1,60 @@
+package exp7;
+import java.util.Scanner;
+public class TestNumber 
+{
+public static void main(String args[]) //main method
+{
+Scanner sc=new Scanner(System.in);
+int num, x;
+float num1, num2;
+String s;
+Number n1 = new MyNumber(); 
+do 
+{
+System.out.println("MENU \n 1:addition of two float numbers"
++"\n2:Even Odd number \n3:Plaindrome String"
++"\n4:Exit \n Choice ::");
+x = sc.nextInt();
+switch(x)
+{
+case 1: //Prime number
+System.out.print("Enter first float number: ");
+Num1 = sc.nextFloat(); //read number
+System.out.print("Enter second float number: ");
+Num2 = sc.nextFloat(); //read number
+System.out.println(“Sum= “+n1.addition(num1,num2));
+break;
+case 2: //Even Odd number
+System.out.print("Enter intger number: ");
+num = sc.nextInt(); //read number
+if(n1.isEven(num))
+{
+System.out.println("Number is even");
+}
+else
+{
+System.out.println("Number is Odd");
+}
+break;
+case 3: //Palindrome String
+System.out.print("Enter String: ");
+s = sc.next(); //read number
+if(n1.isPallindrome(s))
+{
+System.out.println("String is Palindrome");
+}
+else
+{
+System.out.println("String is not Palindrome");
+}
+break;
+case 4: //Exited 
+System.out.println(" Program closed ");
+System.exit(0);
+default: //default case
+System.out.println(" Invalid choice... ");
+}
+}while(x != 4); //loop breaks when input x=4
+sc.close(); //closing of scanner class
+}
+}
