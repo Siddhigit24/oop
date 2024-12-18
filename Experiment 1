@@ -1,1 +1,91 @@
 
+import java.util.*;
+
+// User Defined Complex class
+public class Complex {
+    int real, imaginary; // Declaring variables for real and imaginary parts
+
+    // Default constructor
+    public Complex() {
+        real = 0;
+        imaginary = 0;
+    }
+
+    // Parameterized constructor
+    public Complex(int real, int imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+
+    // Defining addComplex() method for adding two complex numbers
+    Complex addComplex(Complex C1, Complex C2) {
+        Complex temp = new Complex(); // Temporary variable
+        temp.real = C1.real + C2.real;
+        temp.imaginary = C1.imaginary + C2.imaginary;
+        return temp; // Returning the sum
+    }
+
+    // Defining subtractComplex() method for subtracting two complex numbers
+    Complex subtractComplex(Complex C1, Complex C2) {
+        Complex temp = new Complex(); // Temporary variable
+        temp.real = C1.real - C2.real;
+        temp.imaginary = C1.imaginary - C2.imaginary;
+        return temp; // Returning the difference
+    }
+
+    // Defining multiplyComplex() method for multiplying two complex numbers
+    Complex multiplyComplex(Complex C1, Complex C2) {
+        Complex temp = new Complex(); // Temporary variable
+        temp.real = (C1.real * C2.real) - (C1.imaginary * C2.imaginary);
+        temp.imaginary = (C1.real * C2.imaginary) + (C1.imaginary * C2.real);
+        return temp; // Returning the product
+    }
+
+    // Defining divideComplex() method for dividing two complex numbers
+    Complex divideComplex(Complex C1, Complex C2) {
+        Complex temp = new Complex(); // Temporary variable
+        int denominator = (C2.real * C2.real) + (C2.imaginary * C2.imaginary);
+        temp.real = (C1.real * C2.real + C1.imaginary * C2.imaginary) / denominator;
+        temp.imaginary = (C1.imaginary * C2.real - C1.real * C2.imaginary) / denominator;
+        return temp; // Returning the quotient
+    }
+
+    // Function for printing complex number
+    void printComplex() {
+        System.out.println("Complex number: " + real + " + " + imaginary + "i");
+    }
+}
+
+// Main Class
+public class TestComplex {
+    public static void main(String[] args) {
+        Complex C1 = new Complex(3, 2); // Initializing first complex number
+        Complex C2 = new Complex(9, 5); // Initializing second complex number
+        Complex C3 = new Complex(); // Temporary variable for results
+
+        System.out.println("Complex number 1 is");
+        C1.printComplex(); // Print first complex number
+        System.out.println("Complex number 2 is");
+        C2.printComplex(); // Print second complex number
+
+        // Add the complex numbers
+        C3 = C3.addComplex(C1, C2);
+        System.out.print("c3 = c1 + c2 ");
+        C3.printComplex(); // Print the result of addition
+
+        // Subtract the complex numbers
+        C3 = C3.subtractComplex(C1, C2);
+        System.out.print("c3 = c1 - c2 ");
+        C3.printComplex(); // Print the result of subtraction
+
+        // Multiply the complex numbers
+        C3 = C3.multiplyComplex(C1, C2);
+        System.out.print("c3 = c1 * c2 ");
+        C3.printComplex(); // Print the result of multiplication
+
+        // Divide the complex numbers
+        C3 = C3.divideComplex(C1, C2);
+        System.out.print("c3 = c1 / c2 ");
+        C3.printComplex(); // Print the result of division
+    }
+}
